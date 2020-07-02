@@ -9,25 +9,16 @@
     android:isScrollContainer="true"
     >
 
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="250dp"
-        app:srcCompat="@drawable/logo" />
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-light"
         android:text="Crop Price App"
         android:textColor="@color/colorWhite"
-        android:textSize="22dp" />
+        android:textSize="32dp" />
 
 
 
@@ -36,43 +27,55 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="sans-serif-light"
         android:text="Register your account"
         android:textColor="@color/colorWhite"
-        android:textSize="15dp" />
+        android:textSize="18dp" />
 
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/first_name"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="text"
         android:hint="  First Name"
         android:background="#11000000"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="100dp"
         android:layout_centerHorizontal="true"
         />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/last_name"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="text"
         android:hint="  Last Name"
         android:background="#11000000"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="150dp"
         android:layout_centerHorizontal="true"/>
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress2"
+        android:id="@+id/email"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:hint="  Email"
+        android:hint=" Email "
+        android:background="#11000000"
+        android:layout_marginTop="200dp"
+        android:layout_centerHorizontal="true"/>
+
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="  Password"
         android:background="#11000000"
         android:layout_marginTop="250dp"
         android:layout_centerHorizontal="true" />
@@ -90,14 +93,14 @@
 
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/phone"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:hint="  Phone"
         android:background="#11000000"
         android:ems="10"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="350dp"
         android:inputType="phone" />
 
     <Spinner
@@ -107,7 +110,7 @@
         android:ems="10"
         android:background="#11000000"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="400dp"
         />
 
 
@@ -115,20 +118,20 @@
         android:id="@+id/gender"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginTop="480dp"
+        android:layout_marginTop="450dp"
         android:layout_centerHorizontal="true"
         android:background="#11000000"
         />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="  Register Now  "
         android:textColor="@color/colorWhite"
         android:background="#82a145"
+        android:layout_below="@id/gender"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="525dp"/>
-
+        android:layout_marginTop="15dp"/>
 
 </RelativeLayout>

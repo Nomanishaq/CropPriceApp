@@ -17,7 +17,7 @@
     <TextView
         android:id="@+id/editTextTextPersonName"
         android:layout_width="wrap_content"
-        android:paddingLeft="90dp"
+        android:paddingLeft="80dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="130dp"
