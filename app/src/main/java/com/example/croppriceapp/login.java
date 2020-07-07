@@ -2,7 +2,9 @@ package com.example.croppriceapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +20,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.util.HashMap;
@@ -26,6 +31,7 @@ import java.util.Map;
 public class login extends AppCompatActivity {
     TextView reg;
     EditText email,password;
+    String uID, uRole;
     Button loginb;
     final String Login_API = "https://crop-price-app.000webhostapp.com/login.php";
 
@@ -51,7 +57,16 @@ public class login extends AppCompatActivity {
         loginb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                login(email.getText().toString(),password.getText().toString());
+        if (email.getText().toString().equals("")){
+          email.setError("Please fill email");
+        }
+        else if(password.getText().toString().equals("")){
+            password.setError("Please fill Password");
+        }
+
+        else {
+            login(email.getText().toString(),password.getText().toString());
+        }
             }
         });
 
@@ -64,13 +79,39 @@ public class login extends AppCompatActivity {
                             if (response.equals("invalid")){
                                 Toast.makeText(getApplicationContext(), "invalid Login Details", Toast.LENGTH_SHORT).show();
                             }
-                            else if(response.trim().equals("1")){
-                             Intent i = new Intent(login.this,BuyerDashboard.class);
-                             startActivity(i);
-                            }
-                            else if(response.trim().equals("2")){
-                                Intent i = new Intent(login.this,SellerDashboard.class);
-                                startActivity(i);
+                            else {
+                                try {
+                                    JSONObject jo = new JSONObject(response);
+                                    JSONArray ja = jo.getJSONArray("details");
+                                    for(int i =0;i<ja.length();i++){
+                                        JSONObject obj = ja.getJSONObject(i);
+                                        uID = obj.getString("id");
+                                        uRole = obj.getString("role");
+                                        SharedPreferences sp = getSharedPreferences("loginAuth", Context.MODE_PRIVATE);
+                                        SharedPreferences.Editor ed = sp.edit();
+                                        ed.putString("userEmail",obj.getString("email"));
+                                        ed.putString("userID",uID);
+                                        ed.putString("userRole",uRole);
+                                        ed.commit();
+                                        if(uRole.equals("1"))
+                                        {
+
+
+                                Intent b = new Intent(login.this,BuyerDashboard.class);
+                                startActivity(b);
+                                        }
+                                        else if(uRole.equals("2")){
+                                            Intent s= new Intent(login.this,BuyerDashboard.class);
+                                            startActivity(s);
+
+                                        }
+
+                                    }
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
                             }
 
                         }

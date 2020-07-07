@@ -11,7 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SellerDashboard"></activity>
+        <activity android:name=".Active_auction"></activity>
+        <activity android:name=".Profile_view" />
+        <activity android:name=".Add_auction" >
+
+        </activity>
+        <activity android:name=".SellerDashboard" />
         <activity android:name=".BuyerDashboard" />
         <activity android:name=".login">
             <intent-filter>
@@ -19,6 +24,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".registration" />

@@ -80,11 +80,26 @@ public class registration extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if(first_name.getText().toString().equals("")){
-//                    first_name.setError("First Name Required");
-//                }
-                userRegister(first_name.getText().toString(),last_name.getText().toString(),email.getText().toString(),
-                        password.getText().toString(),age.getText().toString(),phone.getText().toString(),i,userGender);
+                if(first_name.getText().toString().equals("")){
+                    first_name.setError("First Name required");
+                }else if(last_name.getText().toString().equals("")){
+                    last_name.setError("Last Name is required");
+                }
+                else if(email.getText().toString().equals("")){
+                    email.setError("Email is required");
+                }else if(password.getText().toString().equals("")){
+                    password.setError("Password is required");
+                }
+                else if(age.getText().toString().equals("")){
+                    age.setError("age is required");
+                }
+                else  if(phone.getText().toString().equals("")){
+                    phone.setError("phone is required");
+                }
+                else {
+                    userRegister(first_name.getText().toString(),last_name.getText().toString(),email.getText().toString(),
+                            password.getText().toString(),age.getText().toString(),phone.getText().toString(),i,userGender);
+                }
             }
         });
     }
