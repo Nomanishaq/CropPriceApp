@@ -22,26 +22,27 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PreviusAuction extends AppCompatActivity {
+public class FetchAuctions extends AppCompatActivity {
+
     RecyclerView recyclerView;
     List<auctioFetchModel> list;
     RecyclerView.Adapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_previus_auction);
+        setContentView(R.layout.activity_fetch_auctions);
 
-        recyclerView = findViewById(R.id.inactive_r);
+        recyclerView = findViewById(R.id.rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<>();
 
         SharedPreferences sp = getSharedPreferences("loginAuth", Context.MODE_PRIVATE);
         String id = sp.getString("userID","");
-        String URL = "https://crop-price-app.000webhostapp.com/seller_auctions.php?userID="+id+"&status=1";
+        String URL = "https://crop-price-app.000webhostapp.com/seller_auctions.php?userID="+id+"&status=0";
 
         getAuctions(URL);
-
     }
+
     public void getAuctions(String url){
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
@@ -86,5 +87,6 @@ public class PreviusAuction extends AppCompatActivity {
 
 
     }
+
 
 }

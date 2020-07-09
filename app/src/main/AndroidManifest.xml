@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PreviusAuction_B"></activity>
+        <activity android:name=".FetchAuctions"></activity>
+        <activity android:name=".PreviusAuction_B" />
         <activity android:name=".ActiveAuction_B" />
         <activity android:name=".TotalSales_S" />
         <activity android:name=".PreviusAuction" />

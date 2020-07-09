@@ -26,9 +26,17 @@
         android:layout_marginTop="50dp"
         android:textSize="18dp"
         android:fontFamily="sans-serif-light"
+        android:id="@+id/title"
         android:text="Previous Auction Seller Account" />
 
 
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:id="@+id/inactive_r"
+        />
 
 
 

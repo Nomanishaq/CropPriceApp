@@ -46,6 +46,22 @@ public class login extends AppCompatActivity {
         password = findViewById(R.id.password);
         loginb = findViewById(R.id.login_btn);
 
+        SharedPreferences p = getSharedPreferences("loginAuth",Context.MODE_PRIVATE);
+        String vRole = p.getString("userRole","");
+        if(vRole.equals("0"))
+        {
+
+            Intent s = new Intent(login.this,BuyerDashboard.class);
+            startActivity(s);
+
+        }
+        else if(vRole.equals("1")){
+            Intent b= new Intent(login.this,SellerDashboard.class);
+            startActivity(b);
+
+        }
+
+
         reg = findViewById(R.id.register);
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,15 +113,18 @@ public class login extends AppCompatActivity {
                                         ed.putString("userID",uID);
                                         ed.putString("userRole",uRole);
                                         ed.commit();
-                                        if(uRole.equals("1"))
+                                        if(uRole.equals("0"))
                                         {
 
-                                Intent s = new Intent(login.this,SellerDashboard.class);
+                                Intent s = new Intent(login.this,BuyerDashboard.class);
                                 startActivity(s);
+                                            Toast.makeText(getApplicationContext(), "Login Successfull", Toast.LENGTH_SHORT).show();
+
                                         }
-                                        else if(uRole.equals("2")){
-                                            Intent b= new Intent(login.this,BuyerDashboard.class);
+                                        else if(uRole.equals("1")){
+                                            Intent b= new Intent(login.this,SellerDashboard.class);
                                             startActivity(b);
+                                            Toast.makeText(getApplicationContext(), "Login Successfull", Toast.LENGTH_SHORT).show();
 
                                         }
 
@@ -116,7 +135,6 @@ public class login extends AppCompatActivity {
                                 }
 
                             }
-                            Toast.makeText(getApplicationContext(), "Login Successfull", Toast.LENGTH_SHORT).show();
 
 
                         }

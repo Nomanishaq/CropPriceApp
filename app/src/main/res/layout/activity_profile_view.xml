@@ -28,11 +28,102 @@
         android:fontFamily="sans-serif-light"
         android:text="View Profile " />
 
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        app:srcCompat="@drawable/account" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name:"
+        android:layout_marginTop="300dp"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginLeft="30dp"
+        />
+
+    <TextView
+        android:id="@+id/first_name_val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="140dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last Name:"
+        android:layout_marginTop="350dp"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginLeft="30dp"
+        />
+
+    <TextView
+        android:id="@+id/last_name_val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="140dp"
+         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email:"
+        android:layout_marginTop="400dp"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginLeft="30dp"
+        />
+
+    <TextView
+        android:id="@+id/email_val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="140dp"
+         />
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone:"
+        android:layout_marginTop="450dp"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginLeft="30dp"
+        />
+
+    <TextView
+        android:id="@+id/phone_val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginTop="450dp"
+        android:layout_marginLeft="140dp"
+        />
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password:"
+        android:layout_marginTop="500dp"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginLeft="30dp"
+        />
 
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginTop="500dp"
+        android:layout_marginLeft="140dp"
+        android:text="****************" />
 
 </RelativeLayout>

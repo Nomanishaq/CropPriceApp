@@ -34,7 +34,7 @@ public class registration extends AppCompatActivity {
     final  String _API = "https://crop-price-app.000webhostapp.com/register.php";
     String i="0";
     String userGender;
-    String[] roleList = {"Select","Buyer","Seller"};
+    String[] roleList = {"Buyer","Seller"};
     String[] genderList = {"Male","Female"};
 
     @Override
@@ -126,6 +126,9 @@ public class registration extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "Registration Successfull", Toast.LENGTH_SHORT).show();
                                 Intent i = new Intent(registration.this,login.class);
                                 startActivity(i);
+                            }
+                            else if(response.equals("already")){
+                                email.setError("Already email registered");
                             }
                             else {
                                 Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();

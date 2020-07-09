@@ -40,7 +40,7 @@ public class SellerDashboard extends AppCompatActivity {
         activeAuction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent activeAuc = new Intent(SellerDashboard.this,Active_auction.class);
+                Intent activeAuc = new Intent(SellerDashboard.this,FetchAuctions.class);
                 startActivity(activeAuc);
             }
         });
