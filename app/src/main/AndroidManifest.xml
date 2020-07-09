@@ -11,11 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Active_auction"></activity>
+        <activity android:name=".PreviusAuction_B"></activity>
+        <activity android:name=".ActiveAuction_B" />
+        <activity android:name=".TotalSales_S" />
+        <activity android:name=".PreviusAuction" />
+        <activity android:name=".Active_auction" />
         <activity android:name=".Profile_view" />
-        <activity android:name=".Add_auction" >
-
-        </activity>
+        <activity android:name=".Add_auction" />
         <activity android:name=".SellerDashboard" />
         <activity android:name=".BuyerDashboard" />
         <activity android:name=".login">
@@ -24,7 +26,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".registration" />

@@ -9,20 +9,102 @@
 
     <TextView
         android:id="@+id/heading"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Crop Price App"
         android:textColor="#ffff"
-        android:paddingLeft="100dp"
+        android:fontFamily="sans-serif-light"
+        android:layout_centerHorizontal="true"
         android:textSize="35dp"
         />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffff"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:textSize="18dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Buyer Dashboard" />
+
+
+
     <ImageView
-        android:id="@+id/imageAdd"
-        android:layout_width="100dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="20dp"
-        android:layout_height="100dp"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        android:id="@+id/active_Auction_b"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginLeft="50dp"
+        android:background="@color/colorPrimary"
+        app:srcCompat="@drawable/view_active_auction" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Active Auction"
+        android:layout_marginTop="200dp"
+        android:textSize="18dp"
+        android:textColor="#fff"
+        android:fontFamily="sans-serif"
+        android:layout_marginLeft="15dp"/>
+
+    <ImageView
+        android:id="@+id/previous_auction_b"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginLeft="250dp"
+        app:srcCompat="@drawable/previous_auction" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Previous Auction"
+        android:textColor="#ffff"
+        android:layout_marginTop="200dp"
+        android:textSize="18dp"
+        android:fontFamily="sans-serif"
+        android:layout_marginLeft="210dp"/>
+
+    <ImageView
+        android:id="@+id/account_b"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="270dp"
+        app:srcCompat="@drawable/account" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account Details"
+        android:layout_marginTop="330dp"
+        android:textSize="18dp"
+        android:textColor="#fff"
+        android:fontFamily="sans-serif"
+        android:layout_marginLeft="15dp"/>
+
+    <ImageView
+        android:id="@+id/logout_b"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="240dp"
+        android:layout_marginTop="270dp"
+        app:srcCompat="@drawable/logout" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log out"
+        android:layout_marginTop="330dp"
+        android:textSize="18dp"
+        android:textColor="#fff"
+        android:fontFamily="sans-serif"
+        android:layout_marginLeft="230dp"/>
+
+
+
 
 </RelativeLayout>

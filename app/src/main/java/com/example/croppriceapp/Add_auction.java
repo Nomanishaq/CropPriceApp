@@ -3,6 +3,7 @@ package com.example.croppriceapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -47,25 +48,45 @@ public class Add_auction extends AppCompatActivity {
         add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(end_date.getText().toString().matches(DATE_REG)){
-                    addAuction(auction_name.getText().toString(),product_name.getText().toString(), description.getText().toString(),end_date.getText().toString(),price.getText().toString());
-                }
-                else{
-                    end_date.setError("Date Must be In YYYY/MM/DD Format");
-                }
+                    if (auction_name.getText().toString().equals("")){
+                        auction_name.setError("Field is required");
+                    }
+                    else if (product_name.getText().toString().equals("")){
+                        product_name.setError("Field is required");
+                    }
+                    else  if (description.getText().toString().equals("")){
+                        description.setError("Field is required");
+                    }
+                    else if (price.getText().toString().equals("")){
+                        price.setError("Field is required");
+                    }
+                    else if(end_date.getText().toString().matches(DATE_REG)) {
+                        addAuction(auction_name.getText().toString(),product_name.getText().toString(), description.getText().toString(),end_date.getText().toString(),price.getText().toString());
+                    }
+                    else{
+                        end_date.setError("Date Must be In YYYY/MM/DD Format");
+                    }
 
             }
         });
 
     }
 
-    public void addAuction(final String name, final String product, final String description, final String end_date, final String price){
+    public void addAuction(final String name, final String product, final String auction_description, final String en_date, final String aution_price){
         StringRequest rq= new StringRequest(Request.Method.POST, API,
                 new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if (response.equals("ok")){
                     auction_name.setText("");
+                    product_name.setText("");
+                    description.setText("");
+                    end_date.setText("");
+                    price.setText("");
+                    Toast.makeText(getApplicationContext(), "Add Product Auction Success", Toast.LENGTH_SHORT).show();
+                    Intent s = new Intent(Add_auction.this,SellerDashboard.class);
+                    startActivity(s);
+
                 }
                 else {
                     Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
@@ -83,9 +104,9 @@ public class Add_auction extends AppCompatActivity {
                 Map<String,String> map = new HashMap<>();
                 map.put("auction_name",name);
                 map.put("auction_product",product);
-                map.put("auction_descripion",description);
-                map.put("auction_end_date",end_date);
-                map.put("auction_price",price);
+                map.put("auction_descripion",auction_description);
+                map.put("auction_end_date",en_date);
+                map.put("auction_price",aution_price);
                 map.put("getUser",getUserID);
                 return  map;
             }

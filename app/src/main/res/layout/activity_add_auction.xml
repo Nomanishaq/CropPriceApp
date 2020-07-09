@@ -13,8 +13,8 @@
         android:text="Add new Auction"
         android:textColor="#fff"
         android:fontFamily="sans-serif-light"
-        android:textSize="25dp"
-        android:paddingTop="5dp"
+        android:textSize="30dp"
+        android:paddingTop="20dp"
         android:layout_centerHorizontal="true"
         />
 
@@ -24,7 +24,7 @@
         android:layout_height="40dp"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="85dp"
         android:background="#11000000"
         android:inputType="textEmailAddress"
         android:hint="  Auction Name"/>
@@ -35,7 +35,7 @@
         android:layout_height="40dp"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="135dp"
         android:background="#11000000"
         android:inputType="textPersonName"
         android:hint="   Product Name" />
@@ -46,7 +46,7 @@
         android:layout_height="40dp"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="185dp"
         android:background="#11000000"
         android:inputType="textPersonName"
         android:hint="   Description"/>
@@ -57,7 +57,7 @@
         android:layout_height="40dp"
         android:ems="10"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="235dp"
         android:background="#11000000"
         android:hint="   End date"
         android:inputType="text" />
@@ -68,7 +68,7 @@
         android:layout_height="40dp"
         android:ems="10"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="285dp"
         android:background="#11000000"
         android:inputType="textPersonName"
         android:hint="   Price"/>
@@ -78,7 +78,7 @@
         android:layout_height="40dp"
         android:text="Add"
         android:background="#82a145"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="350dp"
         android:layout_centerHorizontal="true"
         android:textColor="#fff"
         />

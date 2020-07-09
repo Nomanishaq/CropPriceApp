@@ -33,6 +33,7 @@ public class login extends AppCompatActivity {
     EditText email,password;
     String uID, uRole;
     Button loginb;
+    final  String email_pattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     final String Login_API = "https://crop-price-app.000webhostapp.com/login.php";
 
     @Override
@@ -57,26 +58,29 @@ public class login extends AppCompatActivity {
         loginb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-        if (email.getText().toString().equals("")){
-          email.setError("Please fill email");
-        }
-        else if(password.getText().toString().equals("")){
-            password.setError("Please fill Password");
-        }
+        if (email.getText().toString().matches(email_pattern)){
+            if(password.getText().toString().equals("")){
+                password.setError("Please fill Password");
+            }
 
+            else {
+                login(email.getText().toString(),password.getText().toString());
+            }
+        }
         else {
-            login(email.getText().toString(),password.getText().toString());
+            email.setError("invalid email");
         }
             }
         });
 
     }
-        public void login(final String email, final String password){
+        public void login(final String email_p, final String password_p){
             StringRequest stringRequest = new StringRequest(Request.Method.POST, Login_API,
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
                             if (response.equals("invalid")){
+                                password.setText("");
                                 Toast.makeText(getApplicationContext(), "invalid Login Details", Toast.LENGTH_SHORT).show();
                             }
                             else {
@@ -96,13 +100,12 @@ public class login extends AppCompatActivity {
                                         if(uRole.equals("1"))
                                         {
 
-
-                                Intent b = new Intent(login.this,BuyerDashboard.class);
-                                startActivity(b);
+                                Intent s = new Intent(login.this,SellerDashboard.class);
+                                startActivity(s);
                                         }
                                         else if(uRole.equals("2")){
-                                            Intent s= new Intent(login.this,BuyerDashboard.class);
-                                            startActivity(s);
+                                            Intent b= new Intent(login.this,BuyerDashboard.class);
+                                            startActivity(b);
 
                                         }
 
@@ -113,19 +116,22 @@ public class login extends AppCompatActivity {
                                 }
 
                             }
+                            Toast.makeText(getApplicationContext(), "Login Successfull", Toast.LENGTH_SHORT).show();
+
 
                         }
                     }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
 
                 }
             }){
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> map = new HashMap<>();
-                    map.put("userEmail",email);
-                    map.put("userpassword",password);
+                    map.put("userEmail",email_p);
+                    map.put("userpassword",password_p);
 
                     return map;
                 }

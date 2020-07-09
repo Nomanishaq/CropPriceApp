@@ -2,7 +2,9 @@ package com.example.croppriceapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -28,6 +30,7 @@ public class registration extends AppCompatActivity {
     Spinner role,gender;
     EditText first_name,last_name,email,password,age,phone;
     Button submit;
+    final  String email_pattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     final  String _API = "https://crop-price-app.000webhostapp.com/register.php";
     String i="0";
     String userGender;
@@ -86,7 +89,7 @@ public class registration extends AppCompatActivity {
                     last_name.setError("Last Name is required");
                 }
                 else if(email.getText().toString().equals("")){
-                    email.setError("Email is required");
+                    email.setError("Invalid email");
                 }else if(password.getText().toString().equals("")){
                     password.setError("Password is required");
                 }
@@ -97,19 +100,32 @@ public class registration extends AppCompatActivity {
                     phone.setError("phone is required");
                 }
                 else {
-                    userRegister(first_name.getText().toString(),last_name.getText().toString(),email.getText().toString(),
-                            password.getText().toString(),age.getText().toString(),phone.getText().toString(),i,userGender);
+                    if (email.getText().toString().matches(email_pattern)){
+                        userRegister(first_name.getText().toString(), last_name.getText().toString(), email.getText().toString(),
+                                password.getText().toString(), age.getText().toString(), phone.getText().toString(), i, userGender);
+                    }
+                    else {
+                        email.setError("Invalid email");
+                    }}
                 }
-            }
+
         });
     }
-        public  void  userRegister(final String first_name, final String last_name, final String email, final String password, final String age, final String phone, final String role, final String gender){
+        public  void  userRegister(final String f_name, final String l_name, final String email_i, final String password_i, final String age_i, final String phone_i, final String role_i, final String gender_i){
             StringRequest stringRequest = new StringRequest(Request.Method.POST, _API,
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
                             if (response.equals("ok")){
+                               first_name.setText("");
+                               last_name.setText("");
+                               email.setText("");
+                               password.setText("");
+                               age.setText("");
+                               phone.setText("");
                                 Toast.makeText(getApplicationContext(), "Registration Successfull", Toast.LENGTH_SHORT).show();
+                                Intent i = new Intent(registration.this,login.class);
+                                startActivity(i);
                             }
                             else {
                                 Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
@@ -126,14 +142,14 @@ public class registration extends AppCompatActivity {
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String,String> map = new HashMap<>();
-                    map.put("first_name",first_name);
-                    map.put("last_name",last_name);
-                    map.put("email",email);
-                    map.put("pass",password);
-                    map.put("age",age);
-                    map.put("gender",gender);
-                    map.put("phone",phone);
-                    map.put("user_type",role);
+                    map.put("first_name",f_name);
+                    map.put("last_name",l_name);
+                    map.put("email",email_i);
+                    map.put("pass",password_i);
+                    map.put("age",age_i);
+                    map.put("gender",gender_i);
+                    map.put("phone",phone_i);
+                    map.put("user_type",role_i);
 
                     return  map;
                 }
