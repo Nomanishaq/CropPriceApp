@@ -59,6 +59,7 @@ public class PreviusAuction extends AppCompatActivity {
                                     auctioFetchModel aModel = new auctioFetchModel(
                                             o.getString("id"),
                                             o.getString("aution_name"),
+                                            o.getString("user_id").toString(),
                                             o.getString("product_name"),
                                             o.getString("product_description"),
                                             o.getString("price"),

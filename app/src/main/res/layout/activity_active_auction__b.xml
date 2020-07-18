@@ -26,8 +26,17 @@
         android:layout_marginTop="50dp"
         android:textSize="18dp"
         android:fontFamily="sans-serif-light"
-        android:text="Active Auction Buyer Account" />
+        android:text="Active Auction Buyer Account"
 
+        android:id="@+id/titleV"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buyerR"
+    android:layout_below="@id/titleV"
+        />
 
 
 

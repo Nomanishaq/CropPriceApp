@@ -89,40 +89,38 @@ public class login extends AppCompatActivity {
             }
         });
 
+
     }
-        public void login(final String email_p, final String password_p){
+        public void login(final String email_p, final String password_p) {
             StringRequest stringRequest = new StringRequest(Request.Method.POST, Login_API,
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-                            if (response.equals("invalid")){
+                            if (response.equals("invalid")) {
                                 password.setText("");
                                 Toast.makeText(getApplicationContext(), "invalid Login Details", Toast.LENGTH_SHORT).show();
-                            }
-                            else {
+                            } else {
                                 try {
                                     JSONObject jo = new JSONObject(response);
                                     JSONArray ja = jo.getJSONArray("details");
-                                    for(int i =0;i<ja.length();i++){
+                                    for (int i = 0; i < ja.length(); i++) {
                                         JSONObject obj = ja.getJSONObject(i);
                                         uID = obj.getString("id");
                                         uRole = obj.getString("role");
                                         SharedPreferences sp = getSharedPreferences("loginAuth", Context.MODE_PRIVATE);
                                         SharedPreferences.Editor ed = sp.edit();
-                                        ed.putString("userEmail",obj.getString("email"));
-                                        ed.putString("userID",uID);
-                                        ed.putString("userRole",uRole);
+                                        ed.putString("userEmail", obj.getString("email"));
+                                        ed.putString("userID", uID);
+                                        ed.putString("userRole", uRole);
                                         ed.commit();
-                                        if(uRole.equals("0"))
-                                        {
+                                        if (uRole.equals("0")) {
 
-                                Intent s = new Intent(login.this,BuyerDashboard.class);
-                                startActivity(s);
+                                            Intent s = new Intent(login.this, BuyerDashboard.class);
+                                            startActivity(s);
                                             Toast.makeText(getApplicationContext(), "Login Successfull", Toast.LENGTH_SHORT).show();
 
-                                        }
-                                        else if(uRole.equals("1")){
-                                            Intent b= new Intent(login.this,SellerDashboard.class);
+                                        } else if (uRole.equals("1")) {
+                                            Intent b = new Intent(login.this, SellerDashboard.class);
                                             startActivity(b);
                                             Toast.makeText(getApplicationContext(), "Login Successfull", Toast.LENGTH_SHORT).show();
 
@@ -144,18 +142,26 @@ public class login extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
 
                 }
-            }){
+            }) {
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> map = new HashMap<>();
-                    map.put("userEmail",email_p);
-                    map.put("userpassword",password_p);
+                    map.put("userEmail", email_p);
+                    map.put("userpassword", password_p);
 
                     return map;
                 }
             };
             RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
             requestQueue.add(stringRequest);
+
         }
 
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+
+    }
 }

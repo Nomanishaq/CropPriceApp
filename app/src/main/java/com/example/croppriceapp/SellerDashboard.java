@@ -2,18 +2,24 @@ package com.example.croppriceapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
 public class SellerDashboard extends AppCompatActivity {
+    ImageView Add_new_auction,activeAuction,previousAuction,totalSale,accountDetail,logOut;
+     SharedPreferences mSharedPreferences;
+     SharedPreferences.Editor mEditor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ImageView Add_new_auction,activeAuction,previousAuction,totalSale,accountDetail,logOut;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seller_dashboard);
+        logOut = findViewById(R.id.logout_s);
 
 //       redirect to add new auction page
         Add_new_auction = findViewById(R.id.add_new_auction_s);
@@ -55,15 +61,30 @@ public class SellerDashboard extends AppCompatActivity {
             }
         });
 
+
+
+
         //      redirect to Total sales
         totalSale = findViewById(R.id.totoal_seles_s);
         totalSale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent totalS = new Intent(SellerDashboard.this,TotalSales_S.class);
+                Intent totalS = new Intent(SellerDashboard.this,FetchBids.class);
                 startActivity(totalS);
             }
         });
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               SharedPreferences sp = getSharedPreferences("loginAuth", Context.MODE_PRIVATE);
+               sp.edit().clear().apply();
+
+
+                Intent i =new Intent(getApplicationContext(),login.class);
+                    startActivity(i);
+            }
+        });
+
 
     }
 }

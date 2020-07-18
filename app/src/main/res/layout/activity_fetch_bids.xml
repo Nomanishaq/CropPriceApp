@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    tools:context=".PreviusAuction_B">
 
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="match_parent"
+        tools:context=".FetchBids"
+        >
 
     <TextView
         android:id="@+id/heading"
@@ -25,19 +27,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:textSize="18dp"
-        android:id="@+id/abc"
         android:fontFamily="sans-serif-light"
-        android:text="Previous Auction Buyer Account" />
+        android:text="Bid Now" />
 
-
-
-<androidx.recyclerview.widget.RecyclerView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_below="@id/abc"
-    android:id="@+id/br"/>
-
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:id="@+id/bidRv"/>
 
 
 </RelativeLayout>

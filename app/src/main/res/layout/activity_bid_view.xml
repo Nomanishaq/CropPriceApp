@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
+    android:layout_height="match_parent"
+    tools:context=".Bid_view"
+    >
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crop Price App"
+        android:textColor="#ffff"
+        android:fontFamily="sans-serif-light"
+        android:layout_centerHorizontal="true"
+        android:textSize="35dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffff"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:textSize="18dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Bid Now" />
+
+
+
+    <EditText
+        android:hint="Bid Price"
+        android:id="@+id/edtPrice"
+        android:background="#11000000"
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="150dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#fff"
+        android:text="BID"
+        android:background="#82a145"
+        android:layout_marginTop="230dp"
+        android:id="@+id/btnFinalBid"
+        />
+</RelativeLayout>
